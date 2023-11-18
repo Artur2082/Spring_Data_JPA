@@ -1,7 +1,8 @@
-package com.example.spring_boot_practice.controller;
+package com.example.spring_data_jpa.controller;
 
-import com.example.spring_boot_practice.entity.Employee;
-import com.example.spring_boot_practice.service.EmployeeService;
+
+import com.example.spring_data_jpa.entity.Employee;
+import com.example.spring_data_jpa.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,5 +42,10 @@ public class MyRESTController {
         Employee employee = employeeService.getEmp(id);
         employeeService.deleteEmp(id);
         return "Employee with id = " + id + " was deleted";
+    }
+
+    @GetMapping("/employees/name/{name}")
+    public List<Employee> findAllByName(@PathVariable String name) {
+        return employeeService.findByName(name);
     }
 }

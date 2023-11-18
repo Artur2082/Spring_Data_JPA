@@ -1,10 +1,10 @@
-package com.example.spring_boot_practice.entity;
+package com.example.spring_data_jpa.entity;
 
 import jakarta.persistence.*;
 
 
 @Entity
-@Table (schema = "dbtest",name = "employees")
+@Table(schema = "dbtest", name = "employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

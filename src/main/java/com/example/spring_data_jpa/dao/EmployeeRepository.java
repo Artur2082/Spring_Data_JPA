@@ -2,15 +2,12 @@ package com.example.spring_data_jpa.dao;
 
 
 import com.example.spring_data_jpa.entity.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface EmployeeDAO {
-    public List<Employee> getAll();
-
-  public void saveEmp(Employee employee);
-
-  public Employee getEmp(int id);
-  public void deleteEmp(int id);
-
+@Repository
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+    public List<Employee> findAllByName(String name);
 }
